@@ -1,0 +1,353 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "VacuNacion API",
+    "description": "API con info sobre centros de vacunacion",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://vacu-nacion-nodejs.herokuapp.com/api"
+    }
+  ],
+  "paths": {
+    "/centros": {
+      "get": {
+        "tags": [
+          "centros"
+        ],
+        "summary": "Obtener todos los centros de vacunacion",
+        "description": "Obtiene la lista con todos los centros de vacunacion registrados",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Retorna los centros de vacunacion",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/inline_response_200"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/centros/{id}": {
+      "get": {
+        "tags": [
+          "centros"
+        ],
+        "summary": "Obtener todos los centros de vacunacion",
+        "description": "Obtiene el centros de vacunacion con del ID correspondiente",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Retorna el centro con ID {id}",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/inline_response_200"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/calificaciones": {
+      "get": {
+        "tags": [
+          "calificaciones"
+        ],
+        "summary": "Obtener calificaciones",
+        "description": "Obtiene las calificaiones de los centros de vacunacion",
+        "responses": {
+          "200": {
+            "description": "Successful request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/inline_response_200_1"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "calificaciones"
+        ],
+        "description": "Crear calificaciones en los centros de vacunacion",
+        "parameters": [
+          {
+            "name": "calificacion",
+            "in": "query",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "$ref": "#/components/schemas/calificacion"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "example": "Calificacion creada con exito"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/calificaciones/{id}": {
+      "get": {
+        "tags": [
+          "calificaciones"
+        ],
+        "description": "Obtiene la calificacion del ID correspondiente",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Retorna la calificacion con ID {id}",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/inline_response_200_2"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/calificaciones/centro/{id}": {
+      "get": {
+        "tags": [
+          "calificaciones"
+        ],
+        "description": "Obtiene las calificaciones del centro con ID correspondiente",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Retorna las calificaciones del centro con ID {id}",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/inline_response_200_2"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "inline_response_200": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": 3
+          },
+          "center_name": {
+            "type": "string",
+            "example": "Centro de salud NORTE"
+          },
+          "center_adress": {
+            "type": "string",
+            "example": "Vieytes 2616"
+          },
+          "center_phone": {
+            "type": "integer",
+            "example": 4888267
+          },
+          "center_area": {
+            "type": "string",
+            "example": "Los Almendros"
+          },
+          "center_timetable": {
+            "type": "string",
+            "example": "8 a 18hs"
+          },
+          "latitud": {
+            "type": "string",
+            "example": "-38.69849276060584"
+          },
+          "longitud": {
+            "type": "string",
+            "example": "-62.297966601559914"
+          },
+          "imagen": {
+            "type": "string",
+            "example": "https://vacu-nacion-nodejs.herokuapp.com/api/centros/3/imagen"
+          }
+        }
+      },
+      "inline_response_200_1": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": 3
+          },
+          "center_id": {
+            "type": "integer",
+            "example": 3
+          },
+          "calification_date": {
+            "type": "string",
+            "example": "2021-06-22"
+          },
+          "post_by": {
+            "type": "string",
+            "example": "Leandro Gimenez"
+          },
+          "stars": {
+            "type": "integer",
+            "example": 4
+          },
+          "waiting": {
+            "type": "integer",
+            "example": 3
+          },
+          "comment": {
+            "type": "string",
+            "example": "Excelente atencion"
+          }
+        }
+      },
+      "calificacion": {
+        "type": "object",
+        "properties": {
+          "center_id": {
+            "type": "integer",
+            "example": 12
+          },
+          "calification_date": {
+            "type": "string",
+            "example": "2021-06-22"
+          },
+          "post_by": {
+            "type": "string",
+            "example": "Facu Gonzalo"
+          },
+          "stars": {
+            "type": "integer",
+            "example": 5
+          },
+          "waiting": {
+            "type": "integer",
+            "example": 1
+          },
+          "comment": {
+            "type": "string",
+            "example": "¡Excelente!"
+          }
+        }
+      },
+      "inline_response_200_2": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": 1
+          },
+          "center_id": {
+            "type": "integer",
+            "example": 12
+          },
+          "calification_date": {
+            "type": "string",
+            "example": "2021-06-22"
+          },
+          "post_by": {
+            "type": "string",
+            "example": "Facu Gonzalo"
+          },
+          "stars": {
+            "type": "integer",
+            "example": 5
+          },
+          "waiting": {
+            "type": "integer",
+            "example": 1
+          },
+          "comment": {
+            "type": "string",
+            "example": "¡Excelente!"
+          }
+        }
+      }
+    }
+  }
+}

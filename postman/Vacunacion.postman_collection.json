@@ -1,0 +1,137 @@
+{
+	"info": {
+		"_postman_id": "fe466f7e-0af8-4208-b6a4-9e6eeae05a00",
+		"name": "Vacunacion",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET CENTROS",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://vacu-nacion-nodejs.herokuapp.com/api/centros",
+					"protocol": "https",
+					"host": [
+						"vacu-nacion-nodejs",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"centros"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST CALIFICACION",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 9,\r\n    \"center_id\": 2,\r\n    \"calification_date\": \"2021-05-16\",\r\n    \"stars\": 3,\r\n    \"waiting\": 2,\r\n    \"comment\": \"Probando desde Postman\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://vacu-nacion-nodejs.herokuapp.com/api/calificaciones",
+					"protocol": "https",
+					"host": [
+						"vacu-nacion-nodejs",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"calificaciones"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET CALIFICACIONES",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://vacu-nacion-nodejs.herokuapp.com/api/calificaciones",
+					"protocol": "https",
+					"host": [
+						"vacu-nacion-nodejs",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"calificaciones"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET CALIFICACIONES BY ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://vacu-nacion-nodejs.herokuapp.com/api/calificaciones/2",
+					"protocol": "https",
+					"host": [
+						"vacu-nacion-nodejs",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"calificaciones",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET CALIFICACIONES BY CENTER",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://vacu-nacion-nodejs.herokuapp.com/api/calificaciones/centro/1",
+					"protocol": "https",
+					"host": [
+						"vacu-nacion-nodejs",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"calificaciones",
+						"centro",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
